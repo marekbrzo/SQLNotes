@@ -1,0 +1,45 @@
+-- Removing Duplicates, 
+
+
+SELECT Continent
+    FROM Country;
+
+-- SELECT DISTINCT statement only gets unique results
+GO
+SELECT DISTINCT Convert(Varchar(max),Continent)  FROM Country
+GO
+
+
+DROP TABLE IF EXISTS chapter3TestDuplications
+CREATE TABLE chapter3TestDuplications(
+    a INT,
+    b INT
+)
+
+INSERT INTO chapter3TestDuplications
+    VALUES (1, 1);
+INSERT INTO chapter3TestDuplications
+    VALUES (2,1)
+INSERT INTO chapter3TestDuplications
+    VALUES (3, 1);
+INSERT INTO chapter3TestDuplications
+    VALUES (4,1)
+INSERT INTO chapter3TestDuplications
+    VALUES (5, 1);
+INSERT INTO chapter3TestDuplications
+    VALUES (1,2)
+INSERT INTO chapter3TestDuplications
+    VALUES (1, 2);
+
+SELECT * 
+    FROM chapter3TestDuplications;
+
+
+SELECT DISTINCT a
+    FROM chapter3TestDuplications
+
+SELECT DISTINCT b
+    FROM chapter3TestDuplications
+
+SELECT DISTINCT a,b
+    FROM chapter3TestDuplications

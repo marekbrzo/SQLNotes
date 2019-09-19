@@ -1,0 +1,33 @@
+-- Lenght of a string
+SELECT LEN('String');
+
+SELECT Name, LEN(Convert(Varchar(max),Name)) AS Lenght
+    From City 
+    ORDER BY Lenght Desc, Convert(Varchar(max),Name);
+
+-- SUBSTRING (expression, start, end)
+SELECT SUBSTRING('this string', 6,6)
+
+SELECT released, 
+        SUBSTRING(released, 1, 4) AS year,
+        SUBSTRING(released, 6, 2) AS month,
+        SUBSTRING(released, 9, 2) AS day    
+    FROM album
+    ORDER BY CONVERT(Varchar(max),released);
+
+SELECT released
+    FROM album
+    ORDER BY CONVERT(Varchar(max),released);
+
+-- Removing spaces
+SELECT '   string   ';
+SELECT TRIM('   string   ');
+SELECT TRIM('   string   string   ');
+SELECT LTRIM('   string   ');
+SELECT RTRIM('   string   ');
+SELECT TRIM('.' FROM'...string...');
+
+-- Folding Case
+-- LOWER('StRiNg') == LOWER('string');
+-- UPPER('StRiNg') = UPPER('string');
+

@@ -1,0 +1,74 @@
+-- NESTED SELECT statements. We can use this method because a select statement is a table of in itself
+
+SELECT DISTINCT album_id FROM track WHERE duration <= 90;
+
+SELECT * FROM album
+  WHERE id IN (SELECT DISTINCT album_id FROM track WHERE duration <= 90)
+
+
+SELECT a.title AS album, a.artist, t.track_number AS seq, t.title, t.duration AS secs
+  FROM album AS a
+  JOIN track AS t
+    ON t.album_id = a.id
+  WHERE a.id IN (SELECT DISTINCT album_id FROM track WHERE duration <= 90)
+--   ORDER BY a.title, t.track_number
+;
+
+SELECT a.title AS album, a.artist, t.track_number AS seq, t.title, t.duration AS secs
+  FROM album AS a
+  JOIN (
+    SELECT album_id, track_number, duration, title
+      FROM track
+      WHERE duration <= 90
+  ) AS t
+    ON t.album_id = a.id
+--   ORDER BY a.title, t.track_number
+;
+
+-- NOW WE CAN USE VIEWS. THEY CAN BE USED AS Save QUERIES
+SELECT id, album_id, title, track_number, duration / 60 AS m, duration % 60 AS s 
+    FROM track;
+
+GO
+DROP VIEW IF EXISTS trackView;
+GO
+CREATE VIEW trackView AS
+  SELECT id, album_id, title, track_number, duration / 60 AS m, duration % 60 AS s 
+    FROM track;
+GO
+
+SELECT * FROM trackView;
+
+
+SELECT a.title AS album, a.artist, t.track_number AS seq, t.title, t.m, t.s
+  FROM album AS a
+  JOIN trackView AS t
+    ON t.album_id = a.id
+--   ORDER BY a.title, t.track_number
+;
+
+
+
+SELECT a.artist AS artist,
+    a.title AS album,
+    t.title AS track,
+    t.track_number AS trackno,
+    t.duration / 60 AS m,
+    t.duration % 60 AS s
+  FROM track AS t
+    JOIN album AS a
+      ON a.id = t.album_id
+;
+
+DROP VIEW IF EXISTS joinedAlbum
+GO
+CREATE VIEW joinedAlbum AS
+  SELECT a.artist AS artist, a.title AS album,t.title AS track,t.track_number AS trackno,t.duration / 60 AS m,t.duration % 60 AS s
+    FROM track AS t
+    JOIN album AS a
+      ON a.id = t.album_id
+;
+GO
+SELECT * FROM joinedAlbum;
+
+DROP VIEW IF EXISTS joinedAlbum

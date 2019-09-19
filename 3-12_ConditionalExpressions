@@ -1,0 +1,19 @@
+-- Working with CONDITIONAL EXPRESSIONS
+
+DROP TABLE IF EXISTS chapter3TestBool
+CREATE TABLE chapter3TestBool(
+    a INTEGER,
+    b INTEGER
+);
+
+INSERT INTO chapter3TestBool
+    VALUES (1, 0);
+
+SELECT *
+    FROM chapter3TestBool;
+
+-- Boolean expression.
+SELECT
+    CASE a WHEN 1 THEN 'true' ELSE 'false' END as boolA,
+    CASE b WHEN 1 THEN 'true' ELSE 'false' END as boolB
+    FROM chapter3TestBool

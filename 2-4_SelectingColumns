@@ -1,0 +1,21 @@
+GO
+SELECT * FROM Country;
+GO
+
+-- Requestions Specific Columns
+GO
+SELECT Name, Continent, Region 
+    FROM Country;
+GO
+
+-- Changing Names of Columns
+GO
+SELECT Name AS Country, Continent , Region
+    FROM Country;
+GO
+
+-- Changing The Order of Columns
+GO
+SELECT Continent , Region, Name AS Country 
+    FROM Country;
+GO

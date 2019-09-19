@@ -1,0 +1,2 @@
+-- Whenever we need a result from multiple tables we can use a JOIN query to accumlated data into on cohesive table.
+-- SOME TYPES of JOINS: INNER, OUTER, RIGHT, LEFT, LEFT OUTER JOIN

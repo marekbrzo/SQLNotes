@@ -1,0 +1,39 @@
+-- Inserting Rows and values into Tables
+-- Create new table
+DROP TABLE IF EXISTS chapter3Test
+CREATE TABLE chapter3Test(
+    a INTEGER,
+    b TEXT,
+    c TEXT
+);
+
+SELECT *
+    FROM chapter3Test;
+
+-- Simple data insertion
+INSERT INTO chapter3Test
+    VALUES (1, 'This', 'Right here!');
+
+SELECT *
+    FROM chapter3Test;
+
+-- Simple specific insertion
+INSERT INTO chapter3Test
+    (b, c) VALUES ( 'That', 'Over there!');
+
+SELECT *
+    FROM chapter3Test
+
+-- Insertion of NULL row
+INSERT INTO chapter3Test
+    DEFAULT VALUES;
+
+SELECT *
+    FROM chapter3Test
+
+-- Insertion of data from another table by using SELECT 
+INSERT INTO chapter3Test(a,b,c) SELECT id, name, description FROM item;
+
+SELECT *
+    FROM chapter3Test
+

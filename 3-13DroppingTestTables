@@ -1,0 +1,12 @@
+-- Extra step to delete existing tables
+
+DROP TABLE IF EXISTS chapter3Test;
+DROP TABLE IF EXISTS chapter3TestNull;
+DROP TABLE IF EXISTS chapter3TestConstraints;
+
+DROP TABLE IF EXISTS chapter3testSchema;
+DROP TABLE IF EXISTS chapter3testID;
+DROP TABLE IF EXISTS chapter3TestDuplications;
+DROP TABLE IF EXISTS chapter3TestBool;
+
+

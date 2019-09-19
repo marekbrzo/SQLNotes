@@ -1,0 +1,36 @@
+GO
+SET ROWCOUNT 0
+SELECT Name, Continent, Region FROM Country;
+GO
+
+-- Where Statement
+GO
+SELECT Name, Continent, Region FROM Country WHERE CONVERT(char,Continent) = 'Europe';
+GO
+-- Important how the code is strucutred. Example Order By needs to be after the where
+GO
+SELECT Name, Continent, Region FROM Country WHERE CONVERT(char,Continent) = 'Europe' ORDER BY CONVERT(char,Name);
+GO
+-- MSSQL needs to use SELECT TOP #, not the LIMIT Clause at the end
+GO
+SELECT TOP 5 Name, Continent, Region FROM Country WHERE CONVERT(char,Continent) = 'Europe' ORDER BY CONVERT(char,Name);
+GO
+-- 
+
+GO
+SELECT *
+    from Country
+        WHERE CONVERT(char,Continent) = 'Europe'
+        ORDER BY CONVERT(char,Name)
+    Offset 10 ROWS
+    FETCH NEXT 20 ROWS ONLY
+GO
+
+GO
+SELECT Name, Continent, Region
+    from Country
+        WHERE CONVERT(char,Continent) = 'Europe'
+        ORDER BY CONVERT(char,Name)
+    Offset 10 ROWS
+    FETCH NEXT 20 ROWS ONLY
+GO

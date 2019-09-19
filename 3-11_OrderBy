@@ -1,0 +1,20 @@
+-- ORDER BY Clause orders desired parameters. 
+-- Default is ascending order
+
+SELECT Name
+    FROM Country 
+    ORDER BY Convert(Varchar(max),Name) DESC;
+
+-- Sorts by first ORDER BY variable, then Next desired variable
+SELECT Name, Continent
+    FROM Country 
+    ORDER BY Convert(Varchar(max),Continent), Convert(Varchar(max),Name);
+
+-- A little more complicated example
+SELECT Name, Continent, Region
+    FROM Country
+    ORDER BY 
+        Convert(Varchar(max),Continent) DESC,
+        Convert(Varchar(max),Region) , 
+        Convert(Varchar(max),Name);
+     

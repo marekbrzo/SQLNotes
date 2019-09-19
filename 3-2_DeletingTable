@@ -1,0 +1,29 @@
+-- If you need to delete a table we do the following.
+
+-- Setting up a dummy table
+
+CREATE TABLE dummy(
+    a TEXT,
+    b TEXT
+);
+
+INSERT INTO dummy
+    VALUES ('one','two');
+
+GO
+SELECT *
+    FROM dummy
+GO
+
+-- Drop TABLE statement deletes the tables
+DROP TABLE dummy
+
+-- DROP TABLE with IF EXIST clause does a prior conditional check to prevent erros
+DROP TABLE IF EXISTS dummy
+
+GO
+SELECT *
+    FROM dummy
+GO
+-- DISPLAYS and ERROR: INvalid object name 'dummy'
+-- The table has been deleted

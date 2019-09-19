@@ -1,0 +1,24 @@
+-- WE WILL BE INSERTING DATA INTO THE DATABASE
+
+GO
+SELECT * 
+    FROM customer;
+GO
+
+-- Adding into the database by INSERT INTO keyword (ID required)
+INSERT INTO customer ( id, name, address, city, state, zip)
+    VALUES (4,'Fred Flinstone', '123 Cobblestone Way', 'Bedrock', 'CA', '91234');
+
+GO
+SELECT * 
+    FROM customer;
+GO
+
+--Adding a fifth customer but not all information will be present
+INSERT INTO customer ( id, name, city, state)
+    VALUES (5, 'Jimi Hendrix', 'Renton', 'WA')
+
+GO
+SELECT * 
+    FROM customer;
+GO

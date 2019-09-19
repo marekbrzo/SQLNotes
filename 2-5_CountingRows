@@ -1,0 +1,37 @@
+GO
+SELECT * 
+    FROM Country;
+GO
+
+-- Now count rows, displays one row
+GO
+SELECT COUNT(*) AS " Number of Countries"
+    FROM Country;
+GO
+-- Displays 239 Countries
+
+-- Now count rows/countries where population is greater than 1,000,000
+GO
+SELECT COUNT(*) AS "Number of Countries with a populations greater than 1M"
+    FROM Country
+        WHERE Population > 1000000;
+GO
+-- Displays 154 Countries
+
+-- Adding additional WHERE clauses
+GO
+SELECT COUNT(*) AS "Number of European Counties with a Population Greater Than 1M"
+    From Country
+        WHERE Population > 1000000
+            AND CONVERT(char,Continent) = 'Europe';
+GO
+-- Displays 35 European Countries
+
+-- Count rows with values within Life Expectancy column
+GO
+SELECT COUNT(LifeExpectancy) AS "Number of Nations with recorded Life Expectancies"
+    FROM Country;
+GO
+-- Displays 222 out 239 countries recorded life expectancies. 
+-- These excluded nations will have a 'NULL' within the column
+ 

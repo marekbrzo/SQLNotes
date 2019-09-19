@@ -1,0 +1,19 @@
+-- UNIQUE ID COLUMNS
+-- Creating a unique ID for each code. Each inserted row will automatically acquire a unique code.
+
+DROP TABLE IF EXISTS chapter3testID
+CREATE TABLE chapter3testID(
+    id INTEGER NOT NULL IDENTITY PRIMARY KEY,
+    a INTEGER,
+    b TEXT
+);
+
+INSERT INTO chapter3testID
+    (a,b) VALUES (10, 'a');
+INSERT INTO chapter3testID
+    (a,b) VALUES (11, 'b');
+INSERT INTO chapter3testID
+    (a,b) VALUES (12, 'c');
+
+SELECT *
+    FROM chapter3testID

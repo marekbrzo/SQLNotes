@@ -1,0 +1,28 @@
+-- APPLYING CONSTRAINTS (RULES) 
+
+-- Creating a table with a default value, if none provided
+-- Also if we add UNIQUE then we can only have one row that has the unique value
+DROP TABLE IF EXISTS chapter3TestConstraints
+CREATE TABLE chapter3TestConstraints(
+    a TEXT UNIQUE,
+    b TEXT,
+    c TEXT DEFAULT 'panda'
+);
+
+INSERT INTO chapter3TestConstraints
+    (a,b) VALUES ('One', 'Two');
+
+SELECT *
+    FROM chapter3TestConstraints;
+
+-- An error is present since the values are the same
+GO
+INSERT INTO chapter3TestConstraints
+    (a,b) VALUES ('One', 'Two');
+GO
+
+SELECT *
+    FROM chapter3TestConstraints;
+
+
+-- NULLs can bypass unique values

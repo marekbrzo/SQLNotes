@@ -1,0 +1,32 @@
+-- DELETING DATA we use the DELETE FROM statement with the WHERE clause to specify locations
+
+GO  
+SELECT *
+    FROM customer;
+GO
+
+-- Let us delete the last two rows.
+-- First let us make sure we have the right row
+GO
+SELECT *
+    FROM customer
+    WHERE id = 4;
+GO
+
+DELETE FROM customer
+    WHERE id = 4
+
+GO
+SELECT *
+    FROM customer
+GO
+-- Now we have successfully removed ID #4
+
+-- Removing last row
+DELETE FROM customer
+    WHERE id = 5
+
+GO
+SELECT *
+    FROM customer
+GO

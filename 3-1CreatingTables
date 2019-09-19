@@ -1,0 +1,21 @@
+-- Let us create a new table
+
+DROP TABLE IF EXISTS chapter3Test
+CREATE TABLE chapter3Test(
+    a INTEGER,
+    b Text
+);
+
+-- Let us populate the table
+INSERT INTO chapter3Test 
+    VALUES (1, 'a');
+INSERT INTO chapter3Test
+    VALUES (2, 'b');
+INSERT INTO chapter3Test
+    VALUES (3, 'c')
+
+-- Displaying Database
+GO
+SELECT * 
+    FROM chapter3Test;
+GO
